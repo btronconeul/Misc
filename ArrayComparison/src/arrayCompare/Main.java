@@ -8,8 +8,10 @@ public class Main {
 		int[] x = new int[] {1,3,5,6};
 		int[] y = new int[] {2,5,6,8};
 		
-		ArrayCompare.arrayCompare(x, y);
-				
+		Object[] myArrays = ArrayCompare.arrayCompare(x, y);
+		for (Object object : myArrays) {
+			System.out.println(object.toString());
+		}	
 				
 				
 	}

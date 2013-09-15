@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class ArrayCompare {
 
 	
-	public static void arrayCompare (int [] arrayOne, int [] arrayTwo) {
+	public static Object[] arrayCompare (int [] arrayOne, int [] arrayTwo) {
 
 		HashSet<Integer> firstArray = new HashSet<Integer>();
 		HashSet<Integer> secondArray = new HashSet<Integer>();
@@ -20,13 +20,11 @@ public class ArrayCompare {
 			}
 			else{
 				secondArray.add(i);
-			}
-			
+			}		
 		}
-		System.out.println(firstArray.toString());
-		System.out.println(secondArray.toString());
 		
-		
+		return new Object[] {firstArray,secondArray};		
 	}
 
 }
+ 
