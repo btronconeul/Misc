@@ -1,30 +1,34 @@
 package arrayCompare;
 
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArrayCompare {
 
-	
-	public static Object[] arrayCompare (int [] arrayOne, int [] arrayTwo) {
+	private static ArrayList<Integer> arrayComparison (int [] arrayToFix, int [] arrayToCompare) {
 
-		HashSet<Integer> firstArray = new HashSet<Integer>();
-		HashSet<Integer> secondArray = new HashSet<Integer>();
+		ArrayList<Integer> firstArray = new ArrayList<Integer>();
 		
-		for (Integer i : arrayOne) {
+		for (Integer i : arrayToFix) {
 			firstArray.add(i);
 		}
-		for (Integer i : arrayTwo) {
+		for (Integer i : arrayToCompare) {
 			if(firstArray.contains(i)) {
 				firstArray.remove(i);
-			}
-			else{
-				secondArray.add(i);
-			}		
-		}
-		
-		return new Object[] {firstArray,secondArray};		
+			}			
 	}
-
+		return firstArray;
+	}
+	
+	public static List<ArrayList<Integer>> removeDuplicates (int[] arrayOne, int[] arrayTwo){
+		
+		List<ArrayList<Integer>> duplicatesRemoved = new ArrayList<ArrayList<Integer>>();
+		
+		duplicatesRemoved.add(arrayComparison(arrayOne, arrayTwo));
+		duplicatesRemoved.add(arrayComparison(arrayTwo, arrayOne));
+		
+		return duplicatesRemoved;	
+	}
 }
  
